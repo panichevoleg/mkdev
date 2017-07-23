@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+# IDE working files
+/nbproject
+
 # testing
 /coverage
 
