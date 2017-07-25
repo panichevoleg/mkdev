@@ -27,13 +27,22 @@ body {
     background-color: #aaa;
     position: relative;
     width: 15px;
-    height: 300px;
     margin: 20px auto 45px;
     border-radius: 8px;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    transition: all 1s ease-out;
 }
 
-.thermometr:before{
-    content: '';
+.thermometr-value{
+    position: absolute;
+    top: 0;
+    left: -65px;
+    font: 25px Tahoma, sans-serif;
+    color: red;
+}
+
+.thermometr .base{
     position: absolute;
     bottom: -30px;
     left: -12px;
@@ -43,15 +52,17 @@ body {
     border-radius: 40px;
 }
 
-.thermometr:after{
-    content: '';
+.thermometr .column{
     position: absolute;
     bottom: 0;
     left: 0;
     background-color: red;
     width: 100%;
-    height: 50%;
+    height: 0;
     border-radius: 40px;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    transition: all 1s ease-out;
 }
 
 .controls input{
