@@ -16,20 +16,32 @@ function valueToPercent(value){
 
 class ForecastWidgetControls extends React.Component{
 
+    constructor(props){
+        super(props)
+        this.state = {value: props.value, height: props.height, color: props.color}
+    }
+    
+    handleOnChange(e){
+        if (['value', 'height', 'color'].indexOf(e.target.name) > -1){
+            let stateName = e.target.name;
+            this.setState({[stateName]: e.target.value})
+        }
+    }
+    
     render (){
         return (
-            <div className="controls">
+            <div className="controls" onChange={this.handleOnChange.bind(this)}>
                 <div className="formGroup">
                     <label htmlFor="bg-color">Background color, hex</label>
-                    <input type="text" className="form-control" name="color" defaultValue={this.props.color} />
+                    <input type="text" className="form-control" name="color" value={this.state.color} />
                 </div>
                 <div className="formGroup">
                     <label htmlFor="thermo-height">Thermometer height, px</label>    
-                    <input type="text" className="form-control" name="height" defaultValue={this.props.height} />
+                    <input type="text" className="form-control" name="height" value={this.state.height} />
                 </div>
                 <div className="formGroup">
                     <label htmlFor="thermo-value">Thermometer value, &deg;C</label>    
-                    <input type="text" className="form-control" name="value" defaultValue={this.props.value} />
+                    <input type="text" className="form-control" name="value" value={this.state.value} />
                 </div>
                 <button className="btn btn-default" name="setValues">Set values</button>
             </div>
